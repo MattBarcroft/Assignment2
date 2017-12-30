@@ -1,7 +1,5 @@
-<h1>User Created Successfully</h1>
-<?php 
-echo "Welcome ".$_SESSION['username'];
-?>
+<h1>Logout Successful</h1>
+
 <script>
 
 window.onload = function(){

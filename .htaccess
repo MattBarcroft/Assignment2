@@ -1,9 +1,3 @@
-RewriteEngine on
-
-RewriteBase /routing/
-
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteRule ^(.*)$ index.php [QSA,L]
+# This file is intended to make Apache blow up.  This will help
+# determine if .htaccess is enabled or not!
+AHHHHHHH

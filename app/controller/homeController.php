@@ -18,4 +18,14 @@ class homeController{
     public function notLoggedIn(){
         render("home", "notLoggedIn");
     }
+    public function notAdmin(){
+        render("home", "notAdmin");
+    }
+    public function isAdmin(){
+        if(isset($_SESSION['userid'])){
+            $userRolesModel = new userRolesModel();
+            $r = $userRolesModel->is_admin();
+        }
+    
+    }
 }

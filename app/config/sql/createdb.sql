@@ -113,3 +113,5 @@ CREATE TABLE Cards
 );
 INSERT INTO `myKanban`.`Roles` (`role_name`) VALUES ('Admin');
 INSERT INTO `myKanban`.`Roles` (`role_name`) VALUES ('Standard');
+INSERT INTO `myKanban`.`Users` (`username`, `name`, `password`, `email`) VALUES ('Admin', 'Admin', '$2y$10$gQoUv3Fo1N5UztmCGcFTseNioUDF7zUNSRtEfHwWUKBrFuX/OH1KG', 'Admin');
+INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('1', '1');

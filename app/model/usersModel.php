@@ -36,6 +36,20 @@ class usersModel {
         return $users->verify_password($password);
         
     }
+    function user_details($id){
+        
+        $pdo = get_db();
+        
+        $r = $pdo->prepare("select * from Users
+        where user_id = :user_id");
+    
+        $r->execute(array(':user_id' => $id));
+    
+        $r = $r->fetch();
+
+        return $r;
+        
+    }
     function get_user_id($username){
         
         $pdo = get_db();
@@ -48,5 +62,59 @@ class usersModel {
         return $r->fetch(PDO::FETCH_OBJ);
         
     }
+    function select_all_users(){
+        
+        $pdo = get_db();
+        
+        $r = $pdo->prepare("select user_id, username, accountcreated, deleted from Users");
+    
+        $r->execute();
+    
+        $r = $r->fetchAll();
+        return $r;
+        
+    }
+
+    public function mark_user_undeleted($user_id)
+    {
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
+            UPDATE `Users` SET `deleted`='0' WHERE `user_id`=:user_id;
+        ");
+
+        try {
+            $r->execute(array(
+                ':user_id' => $user_id,
+            ));
+            $rowCount = $r->rowCount();
+            return $rowCount;
+        } catch (Exception $e) {
+            echo 'Updated failed!';
+        }
+
+        return $r;
+    }
+    public function mark_user_deleted($user_id)
+    {
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
+            UPDATE `Users` SET `deleted`='1' WHERE `user_id`=:user_id;
+        ");
+
+        try {
+            $r->execute(array(
+                ':user_id' => $user_id,
+            ));
+            $rowCount = $r->rowCount();
+            return $rowCount;
+        } catch (Exception $e) {
+            echo 'Updated failed!';
+        }
+
+        return $r;
+    }
+
 
 }

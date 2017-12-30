@@ -12,7 +12,7 @@
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                         <span class="caret"></span>
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-menu dropdown-menu-right">
                                         <div class="form-group">
                                             <label for="public">Public:</label>
                                             <div class="input-group">

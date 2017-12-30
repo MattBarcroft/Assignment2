@@ -26,6 +26,7 @@
                 <span class="input-group-addon"><i class="fa fa-envelope fa"></i></span>
                 <input type="text" class="form-control" id="email" name="email">
               </div>
+              <p id="email-validation"></p>
             </div>
           
             <div class="form-group">
@@ -43,3 +44,24 @@
         <form>
       </div>
     </div>
+
+    <script>
+    $(document).ready(function(){
+      $("#email").keypress(function(){
+        function validateEmail(email) {
+          var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return regex.test(email);
+        }
+        var email = $("#email").val();
+        validateEmail(email);
+        if (!validateEmail(email)) {
+          $("#email-validation").text(email + " is not valid");
+          $("#email-validation").css("color", "red");
+        } else {
+          $("#email-validation").text("");
+          
+        }
+      });
+    });
+
+    </script>

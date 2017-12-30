@@ -49,7 +49,7 @@ class POST
                 $membership->set_membership_id($id);
                 $membership->set_user_id($board["user_id"]);
 
-                $userid = $membershipModel->insert_membership($membership);
+                $userid = $membershipModel->insert_membership($id, $board["user_id"]);
                 echo "inserted membership for user " . $board["user_id"];
                 
                 
@@ -79,7 +79,7 @@ class POST
         isset($_POST["state_name"]) ? $state_name = $_POST["state_name"] :  $state_name = null;
 
         if ($board_id == null || $state_name == null){
-            echo "fail boardid or statename not supplied";
+            echo "fail board id or state name not supplied";
         }
         else{
             $boardsModel = new boardsModel();

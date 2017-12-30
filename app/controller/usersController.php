@@ -35,8 +35,15 @@ class usersController{
 
         $user->set_name($_POST['name']);
         $user->set_username($_POST['username']);
-        $user->set_email($_POST['email']);
+  
         $user->set_password(password_hash($_POST['password'], PASSWORD_DEFAULT));
+        $email = $_POST["email"];
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "Invalid email format";
+          header("location: /users/user_creation_failure");
+        } else{ 
+            $user->set_email($_POST['email']);
+        }
         
         $usersModel = new usersModel();
 
@@ -47,8 +54,7 @@ class usersController{
             $_SESSION['userid'] = $id;
             $userRolesModel = new userRolesModel();
             $userRolesModel->insert_users_role($id);
-
-            //header("location: /users/user_creation_success");
+            header("location: /users/user_creation_success");
         }
         else{
             header("location: /users/user_creation_failure");
@@ -68,6 +74,11 @@ class usersController{
             $r = $usersModel->get_user_id($_POST['username']);
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $r->user_id;
+            $userRolesModel = new userRolesModel();
+            $admin = $userRolesModel->is_admin($r->user_id);
+            if ($admin){
+                $_SESSION['admin'] = 1;
+            }
             render("users", "login_successful");
             
         } else {
@@ -79,17 +90,18 @@ class usersController{
     public function logout(){
         render("layout", "head");
         render("layout", "navbar");
-
-        unset($_SESSION['username']);
-        unset($_SESSION['password']);
+        if(isset($_SESSION['username'])){
+            unset($_SESSION['username']);
+            unset($_SESSION['password']);
       
-        session_unset();
-        session_destroy();
+            session_unset();
+            session_destroy();
       
-        setcookie("username", "", time()+60, "/");
-        setcookie("password", "", time()+60, "/");
+            setcookie("username", "", time()+60, "/");
+            setcookie("password", "", time()+60, "/");
+        }
 
-        echo "<h1>User Logged Out</h1>";
+        render("users", "logout");
         render("layout", "footer");
     }
 }

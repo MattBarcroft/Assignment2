@@ -6,6 +6,13 @@ body {
     display: block;
     margin-bottom: 20px;
 }
+.input-group{
+    padding:3px;
+}
+.board-title-div{
+    width:50%;
+    float:left;
+}
 
 .theme-showcase > p > .btn {
     margin: 5px 0;
@@ -13,6 +20,10 @@ body {
 
 .theme-showcase .navbar .container {
     width: auto;
+}
+.navbar{
+    background: linear-gradient(#444444, #292b2c);
+
 }
 .txt-white{
     color:white;
@@ -22,6 +33,9 @@ body {
 }
 .div-center{
     margin:0 auto;
+}
+.text-center{
+    text-align: center;
 }
 .login-input{
     margin: 10px 0;
@@ -33,7 +47,8 @@ body {
 .card{
     background-color: white;
     margin:5px;
-    padding:5px;
+    padding:10px;
+    min-width:200px;
 }
 .card h3{
     margin:0 ;
@@ -50,17 +65,16 @@ body {
     font-size: 14px!important;
 }
 
-.board{
-    background-color:rgb(145, 145, 145);
+.board{  
     margin:10px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    padding:5px;
     min-height:150px;
     display:block;
-    
-    //max-width: 300px;
+}
+.display-none{
+    display:none;
 }
 .home-board-link{
     cursor:pointer;
@@ -73,38 +87,55 @@ a.board:hover{
     color:black;
     text-decoration: none;
 }
+.div-above-search{
+    width:116px;
+    float:right;
+}
 
 .top-bar{
     width:98%;
     margin:10px;
-    height:38px;
+    height:90px;
 }
 .float-right{
     float:right;
 }
 .input-div{
     width:250px;
+    max-width: 49%;
 }
 .input-div input{
     width:100px;
 }
+.width-max{
+    width:100%;
+}
 .div-state-header{
-    width:70%;
-    height:40px;
+    width:100%;
+    min-height:40px;
     float:left;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    background-color: white;
+    margin-bottom: 10px;
+    padding:3px;
 }
-.div-remove-state{
-    width:10%;
-    height:40px;
+.div-state-title{
+    width:75%;
+    min-height:40px;
     float:left;
+    padding: 2px 0 0 15px;
 }
-.div-state-move{
-    width:20%;
-    height:40px;
-    float:left;
+.div-state-actions{
+    float: right;
+    height: 40px;
+    width: 25%;
+    max-width: 60px;
+
 }
 .div-state-arrow{
-    width:50%;
+    width:30%;
     float:left;
 }
 .div-state-arrow i{
@@ -154,6 +185,21 @@ hr {
   .dropdown-menu{
     padding: 15px;
     width: 250px;
+  }
+  .fa-minus-circle{
+      padding-top:9px!important;
+  }
+  .fa:hover{
+    color:rgb(126, 126, 126);
+  }
+  .flex-container .ui-droppable:first-child .div-state-header .div-state-actions .fa-arrow-left,
+  .flex-container .ui-droppable:last-child .div-state-header .div-state-actions .fa-arrow-right{
+      pointer-events: none;
+      color:rgb(172, 172, 172);
+  }
+
+  .fa{
+      color:rgb(82, 82, 82);
   }
 
 @media only screen and (max-width: 770px)  {

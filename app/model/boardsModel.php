@@ -23,6 +23,25 @@ class boardsModel
         $r = $r->fetchAll();
         return $r;
     }
+    public function select_deleted_boards()
+    {
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
+            SELECT
+            board_id,
+            board_name,
+            hex_color,
+            board_created,
+            board_last_modified 
+            FROM Boards
+            WHERE deleted = 1;
+        ");
+
+        $r->execute(array());
+        $r = $r->fetchAll();
+        return $r;
+    }
     public function select_public_boards()
     {
         $pdo = get_db();
@@ -102,6 +121,26 @@ class boardsModel
 
         $r = $pdo->prepare("
             UPDATE `Boards` SET `deleted`='1' WHERE `board_id`=:board_id;
+        ");
+
+        try {
+            $r->execute(array(
+                ':board_id' => $board_id,
+            ));
+            $rowCount = $r->rowCount();
+            return $rowCount;
+        } catch (Exception $e) {
+            echo 'Updated failed!';
+        }
+
+        return $r;
+    }
+    public function mark_board_undeleted($board_id)
+    {
+        $pdo = get_db();
+
+        $r = $pdo->prepare("
+            UPDATE `Boards` SET `deleted`='0' WHERE `board_id`=:board_id;
         ");
 
         try {
@@ -505,12 +544,12 @@ class boardsModel
         }
     }
 
-    public function get_surrounding_state($board_id, $state_id, $position)
+    public function position_adjustment($board_id, $state_id, $position)
     {
         $pdo = get_db();
 
         $r = $pdo->prepare("
-        SELECT
+        SELECT DISTINCT
         States.state_id,
         States.position
         FROM Boards

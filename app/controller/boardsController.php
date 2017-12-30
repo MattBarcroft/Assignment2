@@ -30,7 +30,7 @@ class boardsController
         $membership->set_user_id($userid);
         $membership->set_board_id($id);
 
-        $membershipModel->insert_membership($membership);
+        $membershipModel->insert_membership($userid, $id);
 
         $defaultStates = array("To Do", "In Progress", "Done");
 
@@ -78,6 +78,12 @@ class boardsController
     {
         render("layout", "head");
         render("layout", "navbar");
+
+        $usersModel = new usersModel();
+        $r = $usersModel->select_all_users();
+        
+        render("modals", "card_create");
+        render("modals", "invite_user_to_board", $r);
 
         $board_id = $id;
         $boardsModel = new boardsModel();
@@ -148,7 +154,7 @@ class boardsController
         $position = $_POST["position"];
 
         $boardsModel = new boardsModel;
-        $id = $boardsModel->get_surrounding_state($boardid, $stateid, $position);
+        $id = $boardsModel->position_adjustment($boardid, $stateid, $position);
     }
     public function search()
     {
