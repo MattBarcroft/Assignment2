@@ -23,7 +23,7 @@ class usersModel {
         $pdo = get_db();
         
         $r = $pdo->prepare("select * from Users
-        where username = :username");
+        where username = :username and deleted = 0");
     
         $r->execute(array(':username' => $username));
     

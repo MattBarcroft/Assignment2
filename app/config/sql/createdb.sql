@@ -115,3 +115,5 @@ INSERT INTO `myKanban`.`Roles` (`role_name`) VALUES ('Admin');
 INSERT INTO `myKanban`.`Roles` (`role_name`) VALUES ('Standard');
 INSERT INTO `myKanban`.`Users` (`username`, `name`, `password`, `email`) VALUES ('Admin', 'Admin', '$2y$10$gQoUv3Fo1N5UztmCGcFTseNioUDF7zUNSRtEfHwWUKBrFuX/OH1KG', 'Admin');
 INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('1', '1');
+INSERT INTO `myKanban`.`Users` (`user_id`, `username`, `name`, `password`, `email`, `accountcreated`, `deleted`) VALUES ('8', 'Standard', 'Standard', '$2y$10$ebrQoAiZa.7sT6/weP0FeOqyb/E0ypq37I7EvmGBH.8/Khd5N.aNe', 'Standard@hotmail.com', '2017-12-31 10:54:08', '0');
+INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('1', '2');

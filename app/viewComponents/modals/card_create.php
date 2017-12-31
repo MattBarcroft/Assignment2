@@ -42,8 +42,8 @@ $( function() {
             <div class="div-center">
                 <img class="" src="/app/content/images/icons/wood-board.svg" width="100" height="100" alt="">
             </div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <button type="button" class="close" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span>
             </button>
         </div>
         <div id="div-forms">

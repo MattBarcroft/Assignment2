@@ -13,7 +13,7 @@
                 echo "<tr>";
                 echo "<td>" . $board[0] . "</td>";
                 echo "<td>" . $board[1] . "</td>";
-                echo "<td><a href='/admin/mark_undeleted/" . $board[0] . "'>Mark Undeleted</a></td>";
+                echo "<td><a href='/admin/mark_board_undeleted/" . $board[0] . "'>Mark Undeleted</a></td>";
                 echo "</tr>";
             }
             ?>
