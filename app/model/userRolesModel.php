@@ -13,6 +13,7 @@ class userRolesModel {
             echo "insert executed";
         } catch (PDOException $e) {
             $r = 'Connection failed: ' . $e->getMessage();
+            error_log("insert user role failed", 0);
             var_dump( $e->getMessage());
             return false;
         }
@@ -33,6 +34,7 @@ class userRolesModel {
             );
         } catch (PDOException $e) {
             $r = 'Connection failed: ' . $e->getMessage();
+            error_log("is admin function failed", 0);
             var_dump( $e->getMessage());
             return false;
         }
@@ -55,6 +57,7 @@ class userRolesModel {
             $r = $r->fetchAll();
         } catch (PDOException $e) {
             $r = 'Connection failed: ' . $e->getMessage();
+            error_log("select user role failed", 0);
             var_dump( $e->getMessage());
             return false;
         }
@@ -73,6 +76,7 @@ class userRolesModel {
             echo "insert executed";
         } catch (PDOException $e) {
             $r = 'Connection failed: ' . $e->getMessage();
+            error_log("make admin failed", 0);
             var_dump( $e->getMessage());
             return false;
         }
@@ -93,6 +97,7 @@ class userRolesModel {
             );
             echo "delete executed";
         } catch (PDOException $e) {
+            error_log("remove admin failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             var_dump( $e->getMessage());
             return false;

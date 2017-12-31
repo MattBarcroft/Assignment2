@@ -112,6 +112,7 @@ class boardsModel
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("make card deleted failed", 0);
             echo 'Updated failed!';
         }
     }
@@ -130,6 +131,7 @@ class boardsModel
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("mark board deleted failed", 0);
             echo 'Updated failed!';
         }
 
@@ -150,6 +152,7 @@ class boardsModel
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("mark board undeleted failed", 0);
             echo 'Updated failed!';
         }
 
@@ -249,6 +252,7 @@ class boardsModel
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("updated board failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             return false;
         }
@@ -334,6 +338,7 @@ class boardsModel
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("updated card failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             return false;
         }
@@ -360,6 +365,7 @@ class boardsModel
             $r = $pdo->lastInsertId();
             return $r;
         } catch (Exception $e) {
+            error_log("insert new state failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             return false;
         }
@@ -422,6 +428,7 @@ class boardsModel
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("update state failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             return false;
         }
@@ -502,6 +509,7 @@ class boardsModel
             ));
             return true;
         } catch (PDOException $e) {
+            error_log("update card state failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             return false;
         }
@@ -539,6 +547,7 @@ class boardsModel
             ));
             return true;
         } catch (PDOException $e) {
+            error_log("update state position failed", 0);
             $r = 'Connection failed: ' . $e->getMessage();
             return false;
         }
@@ -579,12 +588,14 @@ class boardsModel
             echo (count($r));
             echo $stateToSwapWith;
             if ((count($r)) == $stateToSwapWith) {
+                error_log("state position not updated", 0);
                 die(header('HTTP/1.0 400 Bad error'));
                 return;
             }
         } else {
             $stateToSwapWith = $statePositionInArray - 1;
             if ($stateToSwapWith < 0) {
+                error_log("state position not updated", 0);
                 die(header('HTTP/1.0 400 Bad error'));
                 return;
             }

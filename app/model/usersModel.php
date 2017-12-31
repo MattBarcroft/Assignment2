@@ -90,6 +90,7 @@ class usersModel {
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("user not marked undeleted $user_id", 0);
             echo 'Updated failed!';
         }
 
@@ -110,6 +111,7 @@ class usersModel {
             $rowCount = $r->rowCount();
             return $rowCount;
         } catch (Exception $e) {
+            error_log("user not marked deleted $user_id", 0);
             echo 'Updated failed!';
         }
 
