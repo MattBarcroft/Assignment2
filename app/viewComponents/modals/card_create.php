@@ -1,39 +1,5 @@
 <!-- https://bootsnipp.com/snippets/featured/modal-login-with-jquery-effects -->
 
-<script>
-    
-$( function() {
-    $('.btn-add-card').on( "click", function() {
-        stateid = $(this).attr('data-state-id');
-        $('#card_submit_btn').attr("data-state-id", stateid);
-        $('#testModal').modal();
-    });
-    $('#card-create-modal').on('shown.bs.modal', function () {
-            stateid = $('#card_submit_btn').attr('data-state-id');
-            $('#card_name').focus();
-    });
-    $('#card_submit_btn').click(function() { 
-        var card_name = $('#card_name').val(); 
-        $.ajax({
-            type: "POST",
-            url: "/boards/create_Card",
-            data: 
-            {
-                cardName : card_name,
-                stateId : stateid
-            },
-            error: function(xhr, status, error) {
-                alert(error);
-                console.error(xhr.responseText);
-            }
-        });
-        $('#card-create-modal').modal('hide');
-        location.reload();
-    });
-});
-</script>
-
-
 <div class="modal fade" id="card-create-modal" style="display: none;">
 <div class="modal-dialog">
     <div class="modal-content">

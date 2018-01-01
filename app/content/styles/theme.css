@@ -19,6 +19,9 @@ body {
 .theme-showcase .navbar .container {
   width: auto; }
 
+.board-header {
+  padding: 7px; }
+
 .navbar {
   background: linear-gradient(#444444, #292b2c); }
 
@@ -203,5 +206,44 @@ hr {
 
   .flex-container {
     flex-direction: row; } }
+#red-slider, #green-slider, #blue-slider {
+  float: left;
+  clear: left;
+  width: 300px;
+  margin: 15px; }
+
+#swatch {
+  width: 120px;
+  height: 40px;
+  background-image: none; }
+
+#red-slider .ui-slider-range {
+  background: #ef2929; }
+
+#red-slider .ui-slider-handle {
+  border-color: #ef2929; }
+
+#green-slider .ui-slider-range {
+  background: #8ae234; }
+
+#green-slider .ui-slider-handle {
+  border-color: #8ae234; }
+
+#blue-slider .ui-slider-range {
+  background: #729fcf; }
+
+#blue-slider .ui-slider-handle {
+  border-color: #729fcf; }
+
+/* https://jqueryui.com/autocomplete/#maxheight */
+.ui-autocomplete {
+  max-height: 100px;
+  overflow-y: auto;
+  z-index: 9999;
+  overflow-x: hidden; }
+
+* html .ui-autocomplete {
+  height: 100px;
+  z-index: 9999; }
 
 /*# sourceMappingURL=theme.css.map */

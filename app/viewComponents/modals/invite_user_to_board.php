@@ -124,21 +124,6 @@
           } );
 </script>
 
-  <style>
-      /* https://jqueryui.com/autocomplete/#maxheight */
-  .ui-autocomplete {
-    max-height: 100px;
-    overflow-y: auto;
-    z-index:9999;
-    overflow-x: hidden;
-  }
-  * html .ui-autocomplete {
-    height: 100px;
-    z-index:9999;
-  }
-  </style>
-
-
 <div class="modal fade" id="invite_user_to_board_modal" style="display: none;">
 <div class="modal-dialog">
     <div class="modal-content">

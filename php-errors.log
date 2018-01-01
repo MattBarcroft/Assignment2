@@ -2,3 +2,13 @@
 [30-Dec-2017 14:58:08 UTC] error
 [30-Dec-2017 14:58:08 UTC] error
 [31-Dec-2017 10:53:34 GMT] PHP Notice:  Trying to get property of non-object in /Users/mba01/Documents/SHU Docs/Assignment2/app/model/usersModel.php on line 34
+[31-Dec-2017 11:57:58 GMT] PHP Warning:  Invalid argument supplied for foreach() in /Users/mba01/Documents/SHU Docs/Assignment2/app/api/actions/POST.php on line 42
+[31-Dec-2017 12:01:25 GMT] PHP Fatal error:  Uncaught Error: Class 'PUT' not found in /Users/mba01/Documents/SHU Docs/Assignment2/app/api/apirouter.php:19
+Stack trace:
+#0 /Users/mba01/Documents/SHU Docs/Assignment2/app/config/router.php(12): include()
+#1 /Users/mba01/Documents/SHU Docs/Assignment2/app/config/router.php(63): router('api', 'boards', '1')
+#2 /Users/mba01/Documents/SHU Docs/Assignment2/app/config/init.php(5): include('/Users/mba01/Do...')
+#3 /Users/mba01/Documents/SHU Docs/Assignment2/index.php(14): include('/Users/mba01/Do...')
+#4 {main}
+  thrown in /Users/mba01/Documents/SHU Docs/Assignment2/app/api/apirouter.php on line 19
+[31-Dec-2017 12:25:39 GMT] PHP Warning:  Invalid argument supplied for foreach() in /Users/mba01/Documents/SHU Docs/Assignment2/app/api/actions/POST.php on line 42

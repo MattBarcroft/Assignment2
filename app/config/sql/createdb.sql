@@ -111,9 +111,36 @@ CREATE TABLE Cards
     REFERENCES States(state_id)
     
 );
+-- users
 INSERT INTO `myKanban`.`Roles` (`role_name`) VALUES ('Admin');
 INSERT INTO `myKanban`.`Roles` (`role_name`) VALUES ('Standard');
 INSERT INTO `myKanban`.`Users` (`username`, `name`, `password`, `email`) VALUES ('Admin', 'Admin', '$2y$10$gQoUv3Fo1N5UztmCGcFTseNioUDF7zUNSRtEfHwWUKBrFuX/OH1KG', 'Admin');
 INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('1', '1');
-INSERT INTO `myKanban`.`Users` (`user_id`, `username`, `name`, `password`, `email`, `accountcreated`, `deleted`) VALUES ('8', 'Standard', 'Standard', '$2y$10$ebrQoAiZa.7sT6/weP0FeOqyb/E0ypq37I7EvmGBH.8/Khd5N.aNe', 'Standard@hotmail.com', '2017-12-31 10:54:08', '0');
 INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('1', '2');
+INSERT INTO `myKanban`.`Users` (`user_id`, `username`, `name`, `password`, `email`, `accountcreated`, `deleted`) VALUES ('2', 'Standard', 'Standard', '$2y$10$ebrQoAiZa.7sT6/weP0FeOqyb/E0ypq37I7EvmGBH.8/Khd5N.aNe', 'Standard@hotmail.com', '2017-12-31 10:54:08', '0');
+INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('2', '2');
+INSERT INTO `myKanban`.`Users` (`user_id`, `username`, `name`, `password`, `email`, `accountcreated`, `deleted`) VALUES ('3', 'Standard2', 'Standard2', '$2y$10$1dRZ5x/EtEngG4Jz43y9zOFsnlxBQBKX21gmtknG3tM/7djZ0X9o.', 'Standard2@hotmail.com', '2017-12-31 10:54:08', '0');
+INSERT INTO `myKanban`.`User_Roles` (`user_id`, `role_id`) VALUES ('3', '2');
+
+-- boards
+INSERT INTO `myKanban`.`Boards` (`board_id`, `board_name`, `hex_color`, `board_created`, `deleted`, `public`) VALUES ('1', 'Project 1', '#00C303', '2018-01-01 13:06:39', '0', '0');
+INSERT INTO `myKanban`.`Membership` (`membership_id`, `user_id`, `board_id`) VALUES ('1', '2', '1');
+
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('1', 'To Do', '1', '0', '2', '2018-01-01 13:06:39', '2018-01-01 13:07:46');
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('2', 'In Progress', '1', '0', '3', '2018-01-01 13:06:39', '2018-01-01 13:07:45');
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('3', 'Done', '1', '0', '4', '2018-01-01 13:06:39', '2018-01-01 13:07:42');
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('4', 'Work on Hold', '1', '0', '1', '2018-01-01 13:07:39', '2018-01-01 13:07:46');
+
+INSERT INTO `myKanban`.`Cards` (`card_id`, `state_id`, `card_name`, `deleted`, `card_created`, `card_last_modified`) VALUES ('1', '1', 'Work To Be Done', '1', '2018-01-01 13:06:52', '2018-01-01 13:07:01');
+INSERT INTO `myKanban`.`Cards` (`card_id`, `state_id`, `card_name`, `deleted`, `card_created`) VALUES ('2', '1', 'Write up notes', '0', '2018-01-01 13:07:12');
+INSERT INTO `myKanban`.`Cards` (`card_id`, `state_id`, `card_name`, `deleted`, `card_created`) VALUES ('3', '1', 'Pay staff', '0', '2018-01-01 13:07:18');
+INSERT INTO `myKanban`.`Cards` (`card_id`, `state_id`, `card_name`, `deleted`, `card_created`) VALUES ('4', '1', 'Random Task', '0', '2018-01-01 13:07:26');
+INSERT INTO `myKanban`.`Cards` (`card_id`, `state_id`, `card_name`, `deleted`, `card_created`) VALUES ('5', '2', '', '0', '2018-01-01 13:07:30');
+INSERT INTO `myKanban`.`Cards` (`card_id`, `state_id`, `card_name`, `deleted`, `card_created`) VALUES ('6', '4', 'Pay council tax', '0', '2018-01-01 13:07:59');
+
+INSERT INTO `myKanban`.`Boards` (`board_id`, `board_name`, `hex_color`, `board_created`, `deleted`, `public`) VALUES ('2', 'Project 2', '#FF8C3C', '2018-01-01 13:06:39', '0', '1');
+INSERT INTO `myKanban`.`Membership` (`membership_id`, `user_id`, `board_id`) VALUES ('2', '3', '2');
+
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('5', 'To Do', '2', '0', '2', '2018-01-01 13:06:39', '2018-01-01 13:07:46');
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('6', 'In Progress', '2', '0', '3', '2018-01-01 13:06:39', '2018-01-01 13:07:45');
+INSERT INTO `myKanban`.`States` (`state_id`, `state_name`, `board_id`, `deleted`, `position`, `state_created`, `state_last_modified`) VALUES ('7', 'Done', '2', '0', '4', '2018-01-01 13:06:39', '2018-01-01 13:07:42');

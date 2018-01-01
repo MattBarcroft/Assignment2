@@ -263,8 +263,20 @@ class boardsModel
         $pdo = get_db();
 
         $r = $pdo->prepare("
-            SELECT board_name, board_created, board_last_modified, deleted, public FROM Boards
-            WHERE board_id = :board_id;
+            SELECT 
+            Boards.board_name, 
+            Boards.board_created, 
+            Boards.board_last_modified, 
+            Boards.deleted, Boards.public, 
+            Cards.card_name, Cards.deleted, 
+            Cards.card_created, 
+            Cards.card_last_modified, 
+            Cards.state_id FROM Cards 
+            JOIN States 
+            ON Cards.state_id = States.state_id
+            JOIN Boards
+            ON Boards.board_id = States.board_id
+            WHERE Boards.board_id = :board_id
         ");
 
         $r->execute(array(

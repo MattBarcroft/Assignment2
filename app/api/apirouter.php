@@ -16,7 +16,7 @@ isset($segments[4]) ? $entity2 = strtolower($segments[4]) : $entity2 = null;
 switch ($method) {
     case 'GET':
         include($_SERVER['DOCUMENT_ROOT'] . "/app/api/actions/GET.php");
-        $get = new PUT($entity1, $id, $entity2);
+        $get = new GET($entity1, $id, $entity2);
         break;
     case 'PUT': 
         include($_SERVER['DOCUMENT_ROOT'] . "/app/api/actions/PUT.php");
